@@ -1,24 +1,10 @@
-server:
-  port: 7901
 spring:
-  jpa:
-    generate-ddl: false
-    show-sql: true
-    hibernate:
-      ddl-auto: none
-  datasource:
-    platform: h2
-    schema: classpath:schema.sql
-    data: classpath:data.sql
   application:
-    name: microservice-provider-user
-logging:
-  level:
-    root: INFO
-    org.hibernate: INFO
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
-    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
-    com.itmuch: DEBUG
+    name: microservice-consumer-movie-ribbon
+server:
+  port: 8010
+user: 
+  userServicePath: http://localhost:7900/simple/
 eureka:
   client:
     healthcheck:
