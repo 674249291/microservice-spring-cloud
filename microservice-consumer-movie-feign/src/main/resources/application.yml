@@ -1,24 +1,9 @@
-server:
-  port: 7902
 spring:
-  jpa:
-    generate-ddl: false
-    show-sql: true
-    hibernate:
-      ddl-auto: none
-  datasource:
-    platform: h2
-    schema: classpath:schema.sql
-    data: classpath:data.sql
   application:
-    name: microservice-provider-user
-logging:
-  level:
-    root: INFO
-    org.hibernate: INFO
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
-    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
-    com.itmuch: DEBUG
+    name: microservice-consumer-movie-feign
+server:
+  port: 8011
+
 eureka:
   client:
     healthcheck:

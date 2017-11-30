@@ -1,5 +1,6 @@
 package com.itmuch.cloud.controller;
 
+import com.netflix.loadbalancer.WeightedResponseTimeRule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
@@ -45,9 +46,9 @@ public class MovieController {
     @GetMapping("/test")
     public String test(){
         ServiceInstance serviceInstance = loadBalancerClient.choose("microservice-provider-user");
-        System.out.println("serviceId:" + serviceInstance.getServiceId() + " host:" + serviceInstance.getHost() + " port:" + serviceInstance.getPort());
-        /*ServiceInstance serviceInstance2 = loadBalancerClient.choose("microservice-provider-user2");
-        System.out.println("serviceId:" + serviceInstance2.getServiceId() + " host:" + serviceInstance2.getHost() + " port:" + serviceInstance2.getPort());*/
+        System.out.println("11:serviceId:" + serviceInstance.getServiceId() + " host:" + serviceInstance.getHost() + " port:" + serviceInstance.getPort());
+        ServiceInstance serviceInstance2 = loadBalancerClient.choose("microservice-provider-user2");
+        System.out.println("22:serviceId:" + serviceInstance2.getServiceId() + " host:" + serviceInstance2.getHost() + " port:" + serviceInstance2.getPort());
         return "1";
     }
 }
